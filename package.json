@@ -1,0 +1,22 @@
+{
+  "name": "standarduser",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Sakibur Rahman",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "getReports": "allure generate allure-results --clean -o allure-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.6.0",
+    "allure-commandline": "^2.41.0",
+    "allure-playwright": "^3.8.0"
+  },
+  "dependencies": {
+    "@wdio/allure-reporter": "^9.27.1"
+  }
+}

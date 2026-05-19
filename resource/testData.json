@@ -1,0 +1,29 @@
+{
+  "users": {
+    "locked_out": {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    },
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "performance": {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce"
+    }
+  },
+
+  "checkoutInfo": {
+    "firstName": "Sakib",
+    "lastName": "Rahman",
+    "postalCode": "1234"
+  },
+  "searchedText": [
+    "Sauce Labs Backpack",
+    "Sauce Labs Bike Light",
+    "Sauce Labs Bolt T-Shirt",
+    "Sauce Labs Fleece Jacket",
+    "Sauce Labs Onesie"
+  ]
+}

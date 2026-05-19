@@ -1,0 +1,72 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: standardUser.spec.js >> Standard User >> should able to select three valid products and add to cart
+- Location: tests\specs\standardUser.spec.js:13:9
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//div[contains(@class,"bm-burger-button")]')
+    - locator resolved to <div class="bm-burger-button">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="bm-menu">…</div> from <div id="" aria-hidden="false" class="bm-menu-wrap">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="bm-menu">…</div> from <div id="" aria-hidden="false" class="bm-menu-wrap">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    19 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="bm-menu">…</div> from <div id="" aria-hidden="false" class="bm-menu-wrap">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+```
+
+# Test source
+
+```ts
+  1  | import menuObject from "../pageObjects/menuObject";
+  2  | 
+  3  | export default class Menu {
+  4  | 
+  5  |     constructor(page) {
+  6  |         this.page = page;
+  7  |         this.locate = new menuObject(page);
+  8  |     }
+  9  | 
+  10 |     async openMenu() {
+  11 | 
+  12 |         await this.locate.menuButton.waitFor({ state: 'visible' });
+> 13 |         await this.locate.menuButton.click();
+     |                                      ^ Error: locator.click: Target page, context or browser has been closed
+  14 |     }
+  15 | 
+  16 |     async resetAppState() {
+  17 |         await this.locate.resetButton.click();
+  18 |     }
+  19 | 
+  20 |     async logout() {
+  21 |         await this.locate.logoutButton.click();
+  22 |     }
+  23 | 
+  24 | }
+```
